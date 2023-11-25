@@ -1,0 +1,35 @@
+// // /*===============================================================================
+// // Copyright (C) 2023 PhantomsXR Ltd. All Rights Reserved.
+// //
+// // This file is part of the XRMODInitializer.
+// //
+// // The XRMODInitializerTest cannot be copied, distributed, or made available to
+// // third-parties for commercial purposes without written permission of PhantomsXR Ltd.
+// //
+// // Contact info@phantomsxr.com for licensing requests.
+// // ===============================================================================*/
+
+using System.Threading.Tasks;
+using Phantom.XRMOD.Models.Runtime;
+using Phantom.XRMOD.SDKEntry.Runtime;
+using UnityEngine;
+
+namespace #NAMESPACE#.Runtime
+{
+    [HelpURL("https://docs.phantomsxr.com/unity-sdk/embed-unity#launch-xrmod")]
+    public class #CLASSNAME#XRMODBootstrap : MonoBehaviour
+    {
+        public SDKConfiguration SDKConfiguration;
+        public string ProjectUID;
+
+        async void Start()
+        {
+            // Reinitialization
+            SDKInitialization.Initialize();
+            await Task.Delay(125);
+            SDKEntryPoint tmp_Entry = FindObjectOfType<SDKEntryPoint>();
+            tmp_Entry.InitSDK(JsonUtility.ToJson(SDKConfiguration));
+            tmp_Entry.LaunchXRQuery(ProjectUID);
+        }
+    }
+}

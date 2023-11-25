@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scripts/XRMODInitializer/Editor/Assets/XRMODInitializerUSS.uss?fileID=7433441132597879392&amp;guid=7e4d876960ab84ab2b1f94159aacb257&amp;type=3#XRMODInitializerUSS" />
+    <ui:VisualElement name="platform_container" focusable="true" class="platform-container">
+        <ui:VisualElement name="platform_icon" class="platform-icon" style="margin-top: 0; padding-top: 0; background-image: url(&apos;project://database/Packages/com.phantomsxr.xrmodsimulator/Editor/Assets/Textures/launch.png?fileID=2800000&amp;guid=ec2a98534ab1b49b99801c27d926149c&amp;type=3#launch&apos;); flex-grow: 0;" />
+        <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="platform_name" class="platform_name" />
+    </ui:VisualElement>
+</ui:UXML>
