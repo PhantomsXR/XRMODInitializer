@@ -1,3 +1,11 @@
+# 1.0.0-preview.3
+
+## Fixed
+- Fix duplicate scope error
+
+## Changed
+- Choose a registry server based on Ping latency
+
 # 1.0.0-preview.2
 ## Fixed
 - Fixed the issue where the platform sdk is installed but the installation sdk boot window always pops up
@@ -5,8 +13,8 @@
 ## Added
 - Add China server
 
-## CHANGED
-- Change the log file to the project root directory
+## Changed
+- Move log file from current package directory to project root directory
 
 # 1.0.0-preview.1
 

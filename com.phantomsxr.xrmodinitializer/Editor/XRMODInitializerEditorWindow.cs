@@ -11,13 +11,16 @@
 
 using UnityEditor;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using Unity.EditorCoroutines.Editor;
 using UnityEditor.Compilation;
 using UnityEditor.PackageManager;
+using UnityEditor.PackageManager.UI;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UIElements;
@@ -382,18 +385,38 @@ namespace XRMODInitializer.Editor
         {
             static AddRegisterSource()
             {
-                UPMUtility.AddSource("https://registry.npmjs.org/","PhantomsXR_Global");
-                UPMUtility.AddSource("https://registry.cn.phantomsxr.com/","PhantomsXR_China");
+                EditorCoroutineUtility.StartCoroutineOwnerless(WaitForChoseSource());
 
                 // Fix input system to both
                 InputSystemSetup();
-                
+
                 // First time install
                 Events.registeredPackages += _args =>
                 {
                     PlayerPrefs.DeleteKey(_CONST_XRMOD_INITIALIZED);
                     CompilationPipeline.RequestScriptCompilation();
                 };
+            }
+
+
+            static IEnumerator WaitForChoseSource()
+            {
+                var tmp_GloablPing = new Ping("packages.unity.com");
+                while (!tmp_GloablPing.isDone)
+                {
+                    yield return null;
+                }
+
+                var tmp_ChinaPing = new Ping("registry.cn.phantomsxr.com");
+                while (!tmp_ChinaPing.isDone)
+                {
+                    yield return null;
+                }
+
+                var tmp_IsGlobal = tmp_GloablPing.time < tmp_ChinaPing.time;
+                string tmp_RegistryUrl =
+                    tmp_IsGlobal ? "https://registry.npmjs.org/" : "https://registry.cn.phantomsxr.com/";
+                UPMUtility.AddSource(tmp_RegistryUrl, "PhantomsXR");
             }
         }
     }

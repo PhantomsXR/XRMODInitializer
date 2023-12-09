@@ -1,7 +1,7 @@
 {
   "name": "com.phantomsxr.xrmodinitializer",
   "displayName": "XRMOD Initializer",
-  "version": "1.0.0-preview.2",
+  "version": "1.0.0-preview.3",
   "unity": "2022.3",
   "author": {
     "name": "Phantoms",
@@ -9,6 +9,7 @@
   },
   "type": "tool",
   "dependencies": {
-    "com.unity.xr.management": "4.4.0"
+    "com.unity.xr.management": "4.4.0",
+    "com.unity.editorcoroutines": "1.0.0"
   }
 }

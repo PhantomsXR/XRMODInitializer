@@ -45,11 +45,10 @@ namespace XRMODInitializer.Editor
                     sourceExists = true;
                     break;
                 }
-                else if (source["name"] != null && source["name"].ToString() == _SOURCE_NAME)
-                {
-                    sourceExists = true;
-                    break;
-                }
+
+                if (source["name"] == null || source["name"].ToString() != _SOURCE_NAME) continue;
+                sourceExists = true;
+                break;
             }
 
             if (sourceExists) return;

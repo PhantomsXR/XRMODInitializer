@@ -2,7 +2,8 @@
     "name": "XRMODInitializer.Editor",
     "rootNamespace": "XRMODInitializer.Editor",
     "references": [
-        "GUID:f9fe0089ec81f4079af78eb2287a6163"
+        "GUID:f9fe0089ec81f4079af78eb2287a6163",
+        "GUID:478a2357cc57436488a56e564b08d223"
     ],
     "includePlatforms": [
         "Editor"
