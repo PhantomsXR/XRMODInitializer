@@ -22,7 +22,7 @@ namespace XRMODInitializer.Editor
         public static bool HasInstalledSDK(string _pluginName)
         {
             var tmp_HasBeenInstallSDK = XRPackageMetadataStore
-                .GetAllPackageMetadata().FirstOrDefault(_package => _package.metadata.packageId.Contains("pico"));
+                .GetAllPackageMetadata().FirstOrDefault(_package => _package.metadata.packageId.Contains(_pluginName));
             return tmp_HasBeenInstallSDK != default;
         }
     }

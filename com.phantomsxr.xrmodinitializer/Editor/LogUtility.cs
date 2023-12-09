@@ -23,7 +23,7 @@ namespace XRMODInitializer.Editor
 
         static LogUtility()
         {
-            LOG_FILE_PATH = Path.Combine(XRMODInitializerEditorWindow._CONST_ASSET_PATH_ROOT,
+            LOG_FILE_PATH = Path.Combine(Application.dataPath.Replace("Assets", ""),
                 "XRMODInitializerLog.log");
             Application.logMessageReceived += LogMessage;
         }

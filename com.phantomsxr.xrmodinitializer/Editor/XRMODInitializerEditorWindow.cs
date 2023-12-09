@@ -382,7 +382,8 @@ namespace XRMODInitializer.Editor
         {
             static AddRegisterSource()
             {
-                UPMUtility.AddSource();
+                UPMUtility.AddSource("https://registry.npmjs.org/","PhantomsXR_Global");
+                UPMUtility.AddSource("https://registry.cn.phantomsxr.com/","PhantomsXR_China");
 
                 // Fix input system to both
                 InputSystemSetup();

@@ -20,7 +20,7 @@ namespace XRMODInitializer.Editor
     {
         private static string _SOURCE_NAME = "PhantomsXR";
 
-        public static void AddSource()
+        public static void AddSource(string _sourceUrl,string _name)
         {
             // 路径到项目的manifest.json文件
             string tmp_ManifestPath = Path.Combine(Application.dataPath, "..", "Packages", "manifest.json");
@@ -34,7 +34,7 @@ namespace XRMODInitializer.Editor
 
             string tmp_ManifestContent = File.ReadAllText(tmp_ManifestPath);
             var tmp_ManifestJson = JObject.Parse(tmp_ManifestContent);
-            string tmp_NewSourceUrl = "https://registry.npmjs.org";
+            string tmp_NewSourceUrl = _sourceUrl;
             var tmp_Sources = tmp_ManifestJson["scopedRegistries"] as JArray ?? new JArray();
 
             bool sourceExists = false;
@@ -56,7 +56,7 @@ namespace XRMODInitializer.Editor
 
             var tmp_NewSource = new JObject
             {
-                ["name"] = "PhantomsXR",
+                ["name"] = _name,
                 ["url"] = tmp_NewSourceUrl,
                 ["scopes"] = new JArray("com.phantomsxr")
             };
