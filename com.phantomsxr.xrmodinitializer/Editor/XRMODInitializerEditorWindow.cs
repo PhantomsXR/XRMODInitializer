@@ -33,7 +33,7 @@ namespace XRMODInitializer.Editor
 
         private enum RuntimePlatformName
         {
-            AppleGlass,
+            VisionOS,
             HandheldAR,
             Hololens,
             Pico,
@@ -86,6 +86,17 @@ namespace XRMODInitializer.Editor
 
         void OnEnable()
         {
+            string projectSettingsPath = "ProjectSettings/ProjectSettings.asset";
+            SerializedObject projectSettingsObject =
+                new SerializedObject(AssetDatabase.LoadAllAssetsAtPath(projectSettingsPath)[0]);
+            SerializedProperty editorSettingsProperty = projectSettingsObject.FindProperty("locationUsageDescription");
+            if (editorSettingsProperty != null )
+            {
+                editorSettingsProperty.stringValue = "Your location is required for feature Nearby map.";
+                projectSettingsObject.Update();
+                projectSettingsObject.ApplyModifiedProperties();
+            }
+
             InitializerDb =
                 AssetDatabase.LoadAssetAtPath<InitializerDb>($"{_CONST_ASSET_PATH_ROOT}/{nameof(InitializerDb)}.asset");
             var tmp_XRMODIntializerContainerVTree =
@@ -165,7 +176,7 @@ namespace XRMODInitializer.Editor
 
             switch (currentRuntimePlatform)
             {
-                case RuntimePlatformName.AppleGlass:
+                case RuntimePlatformName.VisionOS:
                     tmp_OSTypeEnumField.style.display = new StyleEnum<DisplayStyle>(DisplayStyle.None);
                     rootVisualElement.Q<Button>("process_button").SetEnabled(false);
                     break;
@@ -259,7 +270,7 @@ namespace XRMODInitializer.Editor
             }
 
             if (EnsureXRProvider.HasInstalledSDK(tmp_PluginName.ToLower()) ||
-                currentRuntimePlatform is RuntimePlatformName.AppleGlass or RuntimePlatformName.HandheldAR)
+                currentRuntimePlatform is RuntimePlatformName.VisionOS or RuntimePlatformName.HandheldAR)
             {
                 PlayerPrefs.DeleteKey(_CONST_DEVICE_SDK_TYPE);
                 PlayerPrefs.DeleteKey(_CONST_XRMOD_INITIALIZED);
@@ -275,7 +286,7 @@ namespace XRMODInitializer.Editor
 
                 switch (currentRuntimePlatform)
                 {
-                    case RuntimePlatformName.AppleGlass:
+                    case RuntimePlatformName.VisionOS:
                         EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.VisionOS,
                             BuildTarget.VisionOS);
                         break;

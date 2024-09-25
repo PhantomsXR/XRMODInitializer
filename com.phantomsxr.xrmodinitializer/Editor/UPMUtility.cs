@@ -10,7 +10,7 @@
 // // ===============================================================================*/
 
 using System.IO;
-using Unity.Plastic.Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Linq;
 using UnityEditor;
 using UnityEngine;
 
