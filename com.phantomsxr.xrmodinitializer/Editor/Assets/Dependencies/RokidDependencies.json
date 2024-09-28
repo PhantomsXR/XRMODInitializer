@@ -52,6 +52,10 @@
     {
       "PackageName": "com.phantomsxr.localization",
       "PackageVersion": "1.0.2"
+    },
+    {
+      "PackageName":"com.unity.ai.navigation",
+      "PackageVersion":"1.1.5"
     }
   ]
 }

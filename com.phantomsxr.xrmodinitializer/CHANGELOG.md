@@ -1,3 +1,10 @@
+# 1.0.0-preview.4
+## Fixed
+- Fix Error CS0117: 'SDKInitialization' does not contain a definition for 'SDKInitialization'
+
+## Changed
+- Change rokid dependency version
+
 # 1.0.0-preview.3
 
 ## Fixed

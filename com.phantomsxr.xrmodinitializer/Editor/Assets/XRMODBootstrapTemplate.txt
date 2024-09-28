@@ -25,7 +25,7 @@ namespace #NAMESPACE#.Runtime
         async void Start()
         {
             // Reinitialization
-            Phantom.XRMOD.SDKEntry.Runtime.SDKInitialization.SDKInitialization.Initialize();
+            Phantom.XRMOD.SDKEntry.Runtime.SDKInitialization.Initialize();
             await Task.Delay(125);
             SDKEntryPoint tmp_Entry = FindObjectOfType<SDKEntryPoint>();
             tmp_Entry.InitSDK(JsonUtility.ToJson(SDKConfiguration));
