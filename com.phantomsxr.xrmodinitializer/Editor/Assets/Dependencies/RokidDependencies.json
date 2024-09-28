@@ -7,11 +7,11 @@
     },
     {
       "PackageName": "com.phantomsxr.foundation",
-      "PackageVersion": "2.0.0-preview.25"
+      "PackageVersion": "2.0.0-preview.26"
     },
     {
       "PackageName": "com.phantomsxr.unityfusion",
-      "PackageVersion": "2.0.0-preview.25"
+      "PackageVersion": "2.0.0-preview.26"
     },
     {
       "PackageName": "com.phantomsxr.webrequestextension",
@@ -35,7 +35,7 @@
     },
     {
       "PackageName": "com.phantomsxr.xrmodutilites",
-      "PackageVersion": "1.0.2"
+      "PackageVersion": "1.0.3"
     },
     {
       "PackageName": "com.phantomsxr.setup",
@@ -47,7 +47,7 @@
     },
     {
       "PackageName": "com.phantomsxr.rokidmodule",
-      "PackageVersion": "2.0.0-preview.25"
+      "PackageVersion": "2.0.0-preview.27"
     },
     {
       "PackageName": "com.phantomsxr.localization",
