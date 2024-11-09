@@ -259,13 +259,13 @@ namespace XRMODInitializer.Editor
                     tmp_PluginName = "Pico";
                     break;
                 case RuntimePlatformName.Quest:
-                    tmp_PluginName = "Quest";
+                    tmp_PluginName = "OpenXR";
                     break;
                 case RuntimePlatformName.Rokid:
-                    tmp_PluginName = "Rokid";
+                    tmp_PluginName = "OpenXR";
                     break;
                 case RuntimePlatformName.XReal:
-                    tmp_PluginName = "Rokid";
+                    tmp_PluginName = "XReal";
                     break;
             }
 
