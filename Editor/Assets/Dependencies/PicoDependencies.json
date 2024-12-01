@@ -1,0 +1,9 @@
+{
+  "PlatformName": "Pico",
+  "dependencies": [
+    {
+      "PackageName": "com.phantomsxr.picomodule",
+      "PackageVersion": "2.0.0-preview.19"
+    }
+  ]
+}

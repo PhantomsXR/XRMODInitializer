@@ -1,0 +1,9 @@
+{
+  "PlatformName": "HandheldAR",
+  "dependencies": [
+    {
+      "PackageName": "com.phantomsxr.handheldarmodule",
+      "PackageVersion": "2.0.0-preview.20"
+    }
+  ]
+}

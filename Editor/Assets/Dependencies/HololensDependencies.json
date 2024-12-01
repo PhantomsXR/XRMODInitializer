@@ -1,0 +1,9 @@
+{
+  "PlatformName": "Hololens",
+  "dependencies": [
+    {
+      "PackageName": "com.phantomsxr.hololensmodule",
+      "PackageVersion": "2.0.0-preview.19"
+    }
+  ]
+}

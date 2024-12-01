@@ -1,0 +1,9 @@
+{
+  "PlatformName": "AVP",
+  "dependencies": [
+    {
+      "PackageName": "com.phantomsxr.visionosmodule",
+      "PackageVersion": "1.0.0-preview.5"
+    }
+  ]
+}

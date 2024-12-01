@@ -1,0 +1,9 @@
+{
+  "PlatformName": "XReal",
+  "dependencies": [
+    {
+      "PackageName": "com.phantomsxr.rokidmodule",
+      "PackageVersion": "2.0.0-preview.19"
+    }
+  ]
+}

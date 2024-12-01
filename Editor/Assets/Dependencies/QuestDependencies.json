@@ -1,0 +1,9 @@
+{
+  "PlatformName": "Quest",
+  "dependencies": [
+    {
+      "PackageName": "com.phantomsxr.questmodule",
+      "PackageVersion": "2.0.0-preview.19"
+    }
+  ]
+}
