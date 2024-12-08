@@ -86,6 +86,7 @@ namespace XRMODInitializer.Editor
 
         void OnEnable()
         {
+            ActivateCorrespondingVersionDll.ActivateDll();
             string projectSettingsPath = "ProjectSettings/ProjectSettings.asset";
             SerializedObject projectSettingsObject =
                 new SerializedObject(AssetDatabase.LoadAllAssetsAtPath(projectSettingsPath)[0]);
@@ -253,19 +254,16 @@ namespace XRMODInitializer.Editor
             switch (currentRuntimePlatform)
             {
                 case RuntimePlatformName.Hololens:
+                 case RuntimePlatformName.Rokid:
+                case RuntimePlatformName.XReal: 
+                case RuntimePlatformName.Quest:
                     tmp_PluginName = "OpenXR";
                     break;
                 case RuntimePlatformName.Pico:
                     tmp_PluginName = "Pico";
                     break;
-                case RuntimePlatformName.Quest:
-                    tmp_PluginName = "OpenXR";
-                    break;
-                case RuntimePlatformName.Rokid:
-                    tmp_PluginName = "OpenXR";
-                    break;
-                case RuntimePlatformName.XReal:
-                    tmp_PluginName = "XReal";
+                case RuntimePlatformName.VisionOS:
+                    tmp_PluginName = "Apple visionOS";
                     break;
             }
 
@@ -326,7 +324,7 @@ namespace XRMODInitializer.Editor
 
                     if (tmp_Request.Status == StatusCode.Failure || tmp_Request.Status == StatusCode.Success)
                     {
-                        LogUtility.Log(tmp_Request.Error?.errorCode.ToString());
+                       // LogUtility.Log(tmp_Request.Error?.errorCode.ToString());
                         tmp_Prt = false;
                     }
                 }

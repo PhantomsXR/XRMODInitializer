@@ -17,10 +17,9 @@ using UnityEngine;
 
 namespace XRMODInitializer.Editor
 {
-    [InitializeOnLoad]
     public static class ActivateCorrespondingVersionDll
     {
-        static ActivateCorrespondingVersionDll()
+        internal static void ActivateDll()
         {
             string tmp_UnityVersion = Application.unityVersion;
             AddDefineSymbol(tmp_UnityVersion.Contains("6000") ? "UNITY_6000_0_OR_NEW" : "UNITY_2022_0_OR_NEW");
@@ -54,7 +53,7 @@ namespace XRMODInitializer.Editor
 
             List<string> tmp_DefineList = new();
             tmp_DefineList.AddRange(tmp_Defines);
-            tmp_DefineList.Add(_symbol); 
+            tmp_DefineList.Add(_symbol);
             PlayerSettings.SetScriptingDefineSymbols(GetCurrentBuildGroup(), tmp_DefineList.ToArray());
         }
     }
