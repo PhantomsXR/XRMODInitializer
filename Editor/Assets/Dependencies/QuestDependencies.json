@@ -3,7 +3,7 @@
   "dependencies": [
     {
       "PackageName": "com.phantomsxr.questmodule",
-      "PackageVersion": "2.0.0-preview.1"
+      "PackageVersion": "1.0.0-preview.2"
     }
   ]
 }
