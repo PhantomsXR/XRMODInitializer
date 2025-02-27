@@ -91,7 +91,7 @@ namespace XRMODInitializer.Editor
             SerializedObject projectSettingsObject =
                 new SerializedObject(AssetDatabase.LoadAllAssetsAtPath(projectSettingsPath)[0]);
             SerializedProperty editorSettingsProperty = projectSettingsObject.FindProperty("locationUsageDescription");
-            if (editorSettingsProperty != null )
+            if (editorSettingsProperty != null)
             {
                 editorSettingsProperty.stringValue = "Your location is required for feature Nearby map.";
                 projectSettingsObject.Update();
@@ -254,8 +254,8 @@ namespace XRMODInitializer.Editor
             switch (currentRuntimePlatform)
             {
                 case RuntimePlatformName.Hololens:
-                 case RuntimePlatformName.Rokid:
-                case RuntimePlatformName.XReal: 
+                case RuntimePlatformName.Rokid:
+                case RuntimePlatformName.XReal:
                 case RuntimePlatformName.Quest:
                     tmp_PluginName = "OpenXR";
                     break;
@@ -271,11 +271,11 @@ namespace XRMODInitializer.Editor
                 currentRuntimePlatform is RuntimePlatformName.VisionOS or RuntimePlatformName.HandheldAR)
             {
                 PlayerPrefs.DeleteKey(_CONST_DEVICE_SDK_TYPE);
-                PlayerPrefs.DeleteKey(_CONST_XRMOD_INITIALIZED);
-                PlayerPrefs.DeleteKey(_CONST_ALLOW_APPLY_CONFIGURE);
+                PlayerPrefs.DeleteKey($"{Application.productName}_{_CONST_XRMOD_INITIALIZED}");
+                PlayerPrefs.DeleteKey($"{Application.productName}_{_CONST_ALLOW_APPLY_CONFIGURE}");
 
                 // Apply configure after all asset import.
-                PlayerPrefs.SetString(_CONST_ALLOW_APPLY_CONFIGURE, "true");
+                PlayerPrefs.SetString($"{Application.productName}_{_CONST_ALLOW_APPLY_CONFIGURE}", "true");
 
                 var tmp_OSTypeEnumField = rootVisualElement.Q<EnumField>("os_type");
                 PlayerPrefs.SetString(_CONST_DEVICE_SDK_TYPE, currentRuntimePlatform.ToString());
@@ -324,10 +324,12 @@ namespace XRMODInitializer.Editor
 
                     if (tmp_Request.Status == StatusCode.Failure || tmp_Request.Status == StatusCode.Success)
                     {
-                       // LogUtility.Log(tmp_Request.Error?.errorCode.ToString());
+                        // LogUtility.Log(tmp_Request.Error?.errorCode.ToString());
                         tmp_Prt = false;
                     }
                 }
+
+                ApplyConfigures();
             }
             else
             {
@@ -365,10 +367,7 @@ namespace XRMODInitializer.Editor
             }
 
             File.WriteAllText($"{tmp_FolderPath}/{Application.productName}XRMODBootstrap.cs", tmp_AllText);
-
-
             AssetDatabase.Refresh();
-            LogUtility.Log("All configure done!");
         }
 
         static void RestartUnityDelayCall()

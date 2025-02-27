@@ -26,7 +26,7 @@ namespace XRMODInitializer.Editor
         }
 
 
-        private static NamedBuildTarget GetCurrentBuildGroup()
+        internal static NamedBuildTarget GetCurrentBuildGroup()
         {
 #if UNITY_VISIONOS
             return NamedBuildTarget.VisionOS;

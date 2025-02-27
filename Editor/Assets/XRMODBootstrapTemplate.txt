@@ -8,7 +8,7 @@
 // //
 // // Contact info@phantomsxr.com for licensing requests.
 // // ===============================================================================*/
-
+#if XRMOD_INSTALL
 using System.Threading.Tasks;
 using Phantom.XRMOD.Models.Runtime;
 using Phantom.XRMOD.SDKEntry.Runtime;
@@ -33,3 +33,4 @@ namespace #NAMESPACE#.Runtime
         }
     }
 }
+#endif

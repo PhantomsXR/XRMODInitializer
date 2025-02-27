@@ -11,6 +11,8 @@
 
 using System.Threading.Tasks;
 using UnityEditor;
+using UnityEditor.Build;
+using UnityEditor.Compilation;
 using UnityEngine;
 
 namespace XRMODInitializer.Editor
@@ -20,16 +22,23 @@ namespace XRMODInitializer.Editor
         [InitializeOnLoadMethod]
         private static void AssemblyReload()
         {
+           
+            CompilationPipeline.compilationFinished += OnCompilationFinished;
+        }
+
+        private static void OnCompilationFinished(object _obj)
+        {
+            ActivateCorrespondingVersionDll.ActivateDll();
             EditorApplication.delayCall += DelayCallToApplyConfigures;
         }
 
         private static async void DelayCallToApplyConfigures()
         {
             var tmp_UnInitialized =
-                PlayerPrefs.GetString(XRMODInitializerEditorWindow._CONST_XRMOD_INITIALIZED, "false") == "false";
+                PlayerPrefs.GetString($"{Application.productName}_{XRMODInitializerEditorWindow._CONST_XRMOD_INITIALIZED}", "false") == "false";
 
             var tmp_AllowApplyConfigure =
-                PlayerPrefs.GetString(XRMODInitializerEditorWindow._CONST_ALLOW_APPLY_CONFIGURE, "false") == "true";
+                PlayerPrefs.GetString($"{Application.productName}_{XRMODInitializerEditorWindow._CONST_ALLOW_APPLY_CONFIGURE}", "false") == "true";
 
             if (!tmp_UnInitialized || !tmp_AllowApplyConfigure) return;
             await Task.Delay(2000);
